@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#070a18">
+<title>PIXEL POINT | Tu mundo gamer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap');
+:root{--bg:#050817;--panel:#0b1024;--panel2:#101831;--line:#202849;--purple:#8b3dff;--violet:#a855f7;--text:#f5f5ff;--muted:#aeb8d3;--green:#64e5bd}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}button,input{font:inherit}button,a{ -webkit-tap-highlight-color:transparent}a{color:inherit;text-decoration:none}.wrap{width:min(1468px,calc(100% - 44px));margin:auto}
+.topbar{height:82px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:28px;background:#080b1b;padding:0 max(22px,calc((100vw - 1468px)/2));position:relative;z-index:5}
+.logo{display:flex;align-items:center;gap:12px;min-width:242px}.logo-mark{width:54px;height:48px;display:grid;place-items:center;position:relative;font-size:35px;font-weight:900;color:var(--violet);border:5px solid #f5f5ff;border-right-color:var(--purple);border-left-color:#f5f5ff;clip-path:polygon(0 20%,20% 20%,20% 0,80% 0,80% 20%,100% 20%,100% 80%,80% 80%,80% 100%,20% 100%,20% 80%,0 80%)}.logo-name{font-family:Orbitron,sans-serif;font-size:25px;font-weight:900;line-height:.96;letter-spacing:.3px}.logo-name span{display:block;color:var(--violet)}
+.search{height:47px;display:flex;flex:1;max-width:810px;border:1px solid #293252;border-radius:6px;overflow:hidden;background:#10162d}.search input{width:100%;border:0;outline:0;background:transparent;color:white;padding:0 16px;font-size:14px}.search input::placeholder{color:#b6bfd9}.search button{width:54px;flex-shrink:0;border:0;color:white;background:linear-gradient(135deg,#6d28d9,#a855f7);cursor:pointer;font-size:22px}.header-actions{display:flex;align-items:center;gap:25px;margin-left:auto}.head-action{display:flex;align-items:center;gap:10px;background:none;border:0;color:var(--text);cursor:pointer;text-align:left;white-space:nowrap}.head-action .ico{font-size:27px}.head-action small{display:block;color:var(--muted);font-size:11px;margin-top:3px}.cart-count{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 5px;border-radius:50px;background:var(--purple);font-size:11px;font-weight:800;margin-left:3px}
+.nav{height:53px;border-bottom:1px solid #242745;background:#090c1d;display:flex;align-items:center;gap:clamp(13px,2.4vw,38px);padding:0 max(22px,calc((100vw - 1468px)/2));font-size:14px;white-space:nowrap;overflow-x:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.location{display:flex;align-items:center;gap:8px;min-width:205px;margin-right:auto}.pin{color:var(--violet);font-size:22px}.location small{display:block;font-size:10px;color:var(--muted);margin-bottom:2px}.nav-link{cursor:pointer;transition:color .2s}.nav-link:hover,.nav-link.active{color:#c18bff}.nav-link .chev{color:#8b91b3;margin-left:4px}.nav-link.hot{color:#b57aff;font-weight:700}.nav-link.gift{margin-left:auto}
+.hero{height:300px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 72% 45%,#32136b 0%,#15113b 26%,#080b20 57%,#040716 80%);border-bottom:1px solid #3a1a75}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#050817 0%,rgba(5,8,23,.97) 25%,rgba(5,8,23,.55) 47%,rgba(5,8,23,.08) 100%),repeating-linear-gradient(130deg,transparent 0 70px,rgba(142,65,255,.06) 71px 73px);pointer-events:none}
+.hero:after{content:"✦  +       ✣       ✦      +";position:absolute;inset:12px 0 auto 0;color:#8b3dff;letter-spacing:90px;font-size:22px;opacity:.55;white-space:nowrap;pointer-events:none}
+.hero-inner{height:100%;display:flex;align-items:center;position:relative;z-index:1}.hero-copy{width:43%;padding-left:32px;position:relative;z-index:2}.eyebrow{font-family:Orbitron,sans-serif;font-size:26px;font-weight:800;letter-spacing:1px;margin:0 0 3px}.hero h1{font-family:Orbitron,sans-serif;font-size:clamp(32px,3.15vw,47px);line-height:1.05;letter-spacing:-1.5px;margin:0 0 12px;font-weight:900;background:linear-gradient(90deg,#a855f7,#6d35ff);background-clip:text;-webkit-background-clip:text;color:transparent}.hero-copy p{margin:5px 0;color:#f1f2ff;font-size:17px}.primary-btn{display:inline-flex;align-items:center;gap:17px;margin-top:17px;padding:12px 29px;border:0;border-radius:5px;background:linear-gradient(110deg,#7137df,#9348ff);color:white;box-shadow:0 7px 24px #762bda35;cursor:pointer;transition:transform .2s,box-shadow .2s}.primary-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px #8b3dff75}
+.hero-art{position:absolute;right:1%;top:0;bottom:0;width:61%;display:flex;align-items:center;justify-content:center;gap:12px}.art-glow{position:absolute;width:75%;height:75%;background:#7434ff3b;filter:blur(45px);border-radius:50%}.device{position:relative;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 15px 14px #0009);z-index:1}.device img{max-width:100%;max-height:225px;object-fit:contain}.device.ps{width:22%;height:86%;transform:translateY(16px)}.device.xbox{width:22%;height:86%;transform:translateY(24px)}.device.switch{width:25%;height:70%;transform:translateY(38px)}.device.pad{width:18%;height:55%;transform:translateY(56px)}.device img{border-radius:8px}.hero-slogan{position:absolute;right:0;top:35%;width:12%;font-family:Orbitron,sans-serif;font-size:17px;line-height:1.45;color:#b36cff;transform:rotate(-7deg);font-weight:800;text-shadow:0 0 15px #8b3dff}.hero-slogan span{display:block;font-size:28px}
+.dots{position:absolute;left:22%;bottom:12px;display:flex;gap:7px;z-index:2}.dots button{width:8px;height:8px;border-radius:50%;border:0;background:#44416b;padding:0;cursor:pointer}.dots button:first-child{background:#b05aff}
+.categories{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:12px;margin:16px auto 22px}.category{min-height:121px;border:1px solid #151e3c;border-radius:7px;background:#0b1024;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12px 5px;transition:transform .2s,border-color .2s,background .2s;cursor:pointer}.category:hover{transform:translateY(-3px);border-color:#8541e9;background:#10162d}.category .cat-icon{font-size:36px;line-height:1.15;color:#a855f7;margin-bottom:9px;filter:drop-shadow(0 0 7px #8b3dff2a)}.category strong{font-size:13px;font-weight:600}.category small{font-size:10px;color:#b9c1d9;margin-top:7px;line-height:1.3}
+.benefits{display:grid;grid-template-columns:repeat(5,1fr);background:#0b1024;border:1px solid #171f3b;border-radius:8px;min-height:83px;margin-bottom:30px}.benefit{display:flex;align-items:center;justify-content:center;gap:15px;padding:14px 12px;position:relative}.benefit:not(:last-child):after{content:"";position:absolute;right:0;top:23px;bottom:23px;width:1px;background:#333956}.benefit .bicon{font-size:30px;color:#a855f7;line-height:1}.benefit strong{font-size:12px;display:block;font-weight:600;white-space:nowrap}.benefit small{display:block;font-size:10px;color:#b9c1d9;margin-top:5px;white-space:nowrap}
+.section-head{display:flex;align-items:center;gap:15px;margin-bottom:15px}.section-flame{font-size:28px;color:#a855f7}.section-head h2{font-family:Orbitron,sans-serif;font-size:25px;margin:0;font-weight:800;white-space:nowrap}.title-line{height:2px;width:170px;background:linear-gradient(90deg,#8b3dff,#6430a6);margin-left:4px}.view-all{margin-left:auto;color:#b57aff;font-size:13px;white-space:nowrap;cursor:pointer}.products-wrap{position:relative;margin-bottom:55px}.products{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px}.product{position:relative;min-width:0;background:#0b1024;border:1px solid #19213f;border-radius:7px;overflow:hidden;transition:transform .2s,border-color .2s}.product:hover{transform:translateY(-3px);border-color:#5c368e}.product-image{height:128px;display:flex;align-items:center;justify-content:center;position:relative;background:radial-gradient(ellipse at 50% 75%,#20264b 0%,#0b1024 68%);padding:12px}.product-image img{width:100%;height:100%;object-fit:contain;transition:transform .25s}.product:hover .product-image img{transform:scale(1.04)}.tag{position:absolute;top:8px;left:7px;z-index:1;padding:4px 7px;border-radius:4px;background:#8b3dff;color:#fff;font-size:9px;font-weight:700}.product-info{padding:9px 10px 10px}.product-name{font-size:11px;font-weight:600;line-height:1.35;min-height:30px}.product-type{font-size:9px;color:#aeb8d3;margin-top:4px;min-height:12px}.price-row{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-top:7px}.price{font-size:16px;font-weight:800;white-space:nowrap}.old-price{font-size:10px;color:#8790ac;text-decoration:line-through}.discount{font-size:9px;background:#8b3dff;color:#fff;padding:2px 4px;border-radius:4px}.rating{display:flex;align-items:center;gap:4px;font-size:9px;color:#bac2d8;margin-top:8px;white-space:nowrap}.star{color:#ffc857;font-size:13px}.add-cart{margin-left:auto;width:28px;height:28px;border:1px solid #8543d7;background:#0b1024;border-radius:50%;color:#b879ff;cursor:pointer;font-size:15px;display:grid;place-items:center;transition:background .2s,color .2s}.add-cart:hover{background:#8b3dff;color:white}.rating-row{display:flex;align-items:center;margin-top:4px}.carousel-arrow{position:absolute;right:-18px;top:42%;width:38px;height:38px;border-radius:50%;background:#18163a;border:1px solid #5b31a5;color:#b984ff;font-size:23px;cursor:pointer;box-shadow:0 5px 20px #0008}
+.empty{grid-column:1/-1;padding:35px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:8px}
+footer{border-top:1px solid #1a2240;background:#080b1b;padding:25px 0;color:#9ea8c7;font-size:12px}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-brand{font-family:Orbitron,sans-serif;color:#b57aff;font-weight:800;font-size:17px}
+.toast{position:fixed;bottom:20px;right:20px;z-index:20;background:#171b36;border:1px solid #7441b7;border-radius:9px;padding:13px 17px;box-shadow:0 12px 35px #0008;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none;font-size:13px}.toast.show{opacity:1;transform:translateY(0)}
+.modal-backdrop{position:fixed;inset:0;background:#0009;z-index:30;display:none;align-items:center;justify-content:center;padding:18px}.modal-backdrop.open{display:flex}.modal{width:min(500px,100%);max-height:85vh;overflow:auto;background:#0b1024;border:1px solid #37305d;border-radius:13px;padding:22px;box-shadow:0 25px 80px #000a}.modal-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:15px}.modal h3{font-family:Orbitron,sans-serif;margin:0;font-size:19px}.close{border:0;background:transparent;color:#d5d7ee;font-size:25px;cursor:pointer}.cart-item{display:grid;grid-template-columns:1fr auto;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}.cart-item small{display:block;color:var(--muted);margin-top:4px}.qty{display:flex;align-items:center;gap:8px;margin-top:8px}.qty button{border:1px solid var(--line);background:#151a34;color:white;border-radius:5px;width:26px;height:25px;cursor:pointer}.remove{border:0;background:none;color:#d49bff;cursor:pointer;font-size:12px}.cart-total{display:flex;justify-content:space-between;font-size:18px;font-weight:800;padding:18px 0}.checkout{width:100%;padding:13px;background:linear-gradient(100deg,#7137df,#a855f7);color:white;border:0;border-radius:6px;font-weight:700;cursor:pointer}.modal-note{color:var(--muted);font-size:12px;line-height:1.5}.mobile-menu{display:none}
+@media(max-width:1250px){.topbar{gap:16px}.logo{min-width:190px}.logo-name{font-size:21px}.header-actions{gap:13px}.nav{gap:18px}.location{min-width:150px}.categories{grid-template-columns:repeat(4,minmax(0,1fr))}.products{grid-template-columns:repeat(4,minmax(0,1fr))}.product-image{height:160px}.benefit{gap:9px}.benefit strong,.benefit small{white-space:normal}}
+@media(max-width:760px){.wrap{width:calc(100% - 28px)}.topbar{height:auto;min-height:72px;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:12px}.logo{min-width:0;gap:9px}.logo-mark{width:42px;height:38px;font-size:27px;border-width:4px}.logo-name{font-size:18px}.header-actions{gap:12px}.head-action .ico{font-size:23px}.head-action span:not(.ico):not(.cart-count){display:none}.head-action small{display:none}.search{grid-column:1/-1;grid-row:2;max-width:none;height:42px}.nav{height:45px;padding:0 14px;gap:20px}.location{min-width:auto;margin-right:0}.location small{display:none}.nav-link.gift{margin-left:0}.hero{height:360px}.hero-inner{align-items:flex-start}.hero-copy{width:100%;padding:27px 12px 0}.eyebrow{font-size:18px}.hero h1{font-size:29px;max-width:360px}.hero-copy p{font-size:13px}.primary-btn{margin-top:10px;padding:10px 18px;font-size:13px}.hero-art{top:155px;right:2%;width:95%;height:195px;opacity:.95}.device img{max-height:150px}.device.ps,.device.xbox{height:100%}.device.switch{height:78%}.device.pad{height:60%}.hero-slogan{display:none}.dots{left:45%;bottom:9px}.categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px auto 16px}.category{min-height:110px}.category .cat-icon{font-size:31px}.benefits{grid-template-columns:1fr 1fr;margin-bottom:25px}.benefit{justify-content:flex-start;padding:13px 10px}.benefit:not(:last-child):after{display:none}.benefit .bicon{font-size:25px}.benefit strong{font-size:11px}.benefit small{font-size:9px}.benefit:last-child{grid-column:1/-1}.section-head{gap:9px}.section-head h2{font-size:18px}.section-flame{font-size:23px}.title-line{flex:1;width:auto}.view-all{font-size:11px}.products{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:7px;gap:10px;scrollbar-color:#59318b #0b1024}.product{flex:0 0 44%;scroll-snap-align:start}.product-image{height:130px}.product-name{font-size:11px}.price{font-size:15px}.carousel-arrow{display:none}.footer-inner{align-items:flex-start;flex-direction:column}.footer-inner p{margin:0}}
+@media(min-width:761px) and (max-width:980px){.hero-copy{width:48%;padding-left:15px}.hero-art{width:58%;right:0}.eyebrow{font-size:21px}.hero h1{font-size:34px}.hero-copy p{font-size:14px}.benefits{grid-template-columns:repeat(5,1fr)}.benefit{padding:10px 5px;gap:5px}.benefit .bicon{font-size:23px}.benefit strong{font-size:10px}.benefit small{font-size:9px}.products{grid-template-columns:repeat(4,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="#" aria-label="Pixel Point inicio">
+    <div class="logo-mark">✚</div>
+    <div class="logo-name">PIXEL<span>POINT</span></div>
+  </a>
+  <form class="search" id="searchForm" role="search">
+    <input id="searchInput" type="search" placeholder="Busca juegos, consolas, accesorios y más..." aria-label="Buscar productos">
+    <button aria-label="Buscar" type="submit">⌕</button>
+  </form>
+  <div class="header-actions">
+    <button class="head-action" id="accountBtn" aria-label="Mi cuenta"><span class="ico">♙</span><span>Mi cuenta<small>Iniciar sesión</small></span></button>
+    <button class="head-action" id="cartBtn" aria-label="Abrir carrito"><span class="ico">🛒</span><span>Carrito <b class="cart-count" id="cartCount">0</b></span></button>
+  </div>
+</header>
+<nav class="nav" aria-label="Navegación principal">
+  <a class="location nav-link" href="#categorias"><span class="pin">●</span><span><small>Enviar a</small>CP 54474</span><span class="chev">⌄</span></a>
+  <a class="nav-link" href="#categorias" data-category="Consolas">Consolas <span class="chev">⌄</span></a>
+  <a class="nav-link" href="#productos" data-category="Juegos">Juegos <span class="chev">⌄</span></a>
+  <a class="nav-link" href="#categorias" data-category="Accesorios">Accesorios <span class="chev">⌄</span></a>
+  <a class="nav-link" href="#categorias" data-category="PC Gaming">PC Gaming <span class="chev">⌄</span></a>
+  <a class="nav-link" href="#categorias" data-category="Nintendo">Nintendo <span class="chev">⌄</span></a>
+  <a class="nav-link" href="#categorias" data-category="PlayStation">PlayStation <span class="chev">⌄</span></a>
+  <a class="nav-link" href="#categorias" data-category="Xbox">Xbox <span class="chev">⌄</span></a>
+  <a class="nav-link hot" href="#productos" data-category="Ofertas">♨ Ofertas</a>
+  <a class="nav-link gift" href="#productos" data-category="Más vendidos">♜ Más vendidos</a>
+</nav>
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">TU MUNDO GAMER,</p>
+      <h1>EN UN SOLO LUGAR</h1>
+      <p>Consolas, juegos, accesorios y mucho más.</p>
+      <p>¡Todo lo que necesitas para jugar!</p>
+      <button class="primary-btn" onclick="document.querySelector('#productos').scrollIntoView({behavior:'smooth'})">Ver ofertas <span>→</span></button>
+    </div>
+    <div class="hero-art" aria-label="Productos gamer destacados">
+      <div class="art-glow"></div>
+      <div class="device ps"><img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=420&q=85" alt="Consola de videojuegos" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-size:90px&quot;>🎮</span>'"></div>
+      <div class="device xbox"><img src="https://images.unsplash.com/photo-1621259182978-fbf93132d53d?auto=format&fit=crop&w=420&q=85" alt="Control de videojuegos" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-size:90px&quot;>🕹️</span>'"></div>
+      <div class="device switch"><img src="https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&w=420&q=85" alt="Consola portátil" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-size:90px&quot;>🎮</span>'"></div>
+      <div class="device pad"><img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=420&q=85" alt="Accesorios gamer" onerror="this.style.display='none';this.parentElement.innerHTML='<span style=&quot;font-size:75px&quot;>🎧</span>'"></div>
+      <div class="hero-slogan">PLAY<br>GAMES.<br>BE HAPPY<span>♧</span></div>
+    </div>
+    <div class="dots"><button aria-label="Diapositiva 1"></button><button aria-label="Diapositiva 2"></button><button aria-label="Diapositiva 3"></button><button aria-label="Diapositiva 4"></button><button aria-label="Diapositiva 5"></button></div>
+  </div>
+</section>
+<main class="wrap">
+  <section class="categories" id="categorias" aria-label="Categorías">
+    <a class="category" href="#productos" data-category="Consolas"><span class="cat-icon">🎮</span><strong>Consolas</strong><small>PS5, Xbox, Nintendo y más</small></a>
+    <a class="category" href="#productos" data-category="Juegos"><span class="cat-icon">🕹️</span><strong>Juegos</strong><small>Físicos y digitales</small></a>
+    <a class="category" href="#productos" data-category="Accesorios"><span class="cat-icon">♬</span><strong>Accesorios</strong><small>Controles, audífonos, sillas</small></a>
+    <a class="category" href="#productos" data-category="PC Gaming"><span class="cat-icon">▣</span><strong>PC Gaming</strong><small>Componentes y periféricos</small></a>
+    <a class="category" href="#productos" data-category="Nintendo"><span class="cat-icon">▯</span><strong>Nintendo</strong><small>Juegos y accesorios</small></a>
+    <a class="category" href="#productos" data-category="PlayStation"><span class="cat-icon">♧</span><strong>PlayStation</strong><small>Juegos y accesorios</small></a>
+    <a class="category" href="#productos" data-category="Xbox"><span class="cat-icon">⊗</span><strong>Xbox</strong><small>Juegos y accesorios</small></a>
+    <a class="category" href="#productos" data-category="Ofertas"><span class="cat-icon">％</span><strong>Ofertas</strong><small>Los mejores precios</small></a>
+  </section>
+  <section class="benefits" aria-label="Beneficios de la tienda">
+    <div class="benefit"><span class="bicon">♧</span><span><strong>Envío gratis</strong><small>en compras mayores a $999</small></span></div>
+    <div class="benefit"><span class="bicon">♢</span><span><strong>Compra segura</strong><small>Tus datos siempre protegidos</small></span></div>
+    <div class="benefit"><span class="bicon">▤</span><span><strong>Pago en línea</strong><small>Tarjetas, PayPal y más</small></span></div>
+    <div class="benefit"><span class="bicon">☆</span><span><strong>Productos originales</strong><small>Con garantía de fabricante</small></span></div>
+    <div class="benefit"><span class="bicon">☏</span><span><strong>Atención personalizada</strong><small>Estamos para ayudarte</small></span></div>
+  </section>
+  <section id="productos">
+    <div class="section-head"><span class="section-flame">♨</span><h2 id="sectionTitle">MÁS VENDIDOS</h2><span class="title-line"></span><a class="view-all" id="clearFilter" href="#productos">Ver todos →</a></div>
+    <div class="products-wrap"><div class="products" id="productsGrid"></div><button class="carousel-arrow" id="scrollProducts" aria-label="Desplazar productos">›</button></div>
+  </section>
+</main>
+<footer><div class="wrap footer-inner"><div><div class="footer-brand">PIXEL POINT</div><p>Tu mundo gamer, en un solo lugar.</p></div><p>Precios, inventario y calificaciones de demostración. Configura tus políticas comerciales antes de vender.</p><p>© <span id="year"></span> Pixel Point</p></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal-backdrop" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle"><div class="modal"><div class="modal-head"><h3 id="cartTitle">Tu carrito</h3><button class="close" data-close="cartModal" aria-label="Cerrar">×</button></div><div id="cartItems"></div><div class="cart-total"><span>Total estimado</span><span id="cartTotal">$0</span></div><button class="checkout" id="checkoutBtn">Continuar compra</button><p class="modal-note">Esta es una demostración de carrito. Para procesar pagos reales, conecta una pasarela de pago y un backend seguro.</p></div></div>
+<div class="modal-backdrop" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accountTitle"><div class="modal"><div class="modal-head"><h3 id="accountTitle">Mi cuenta</h3><button class="close" data-close="accountModal" aria-label="Cerrar">×</button></div><p>Bienvenido a Pixel Point.</p><label for="email">Correo electrónico</label><input id="email" type="email" placeholder="tucorreo@ejemplo.com" style="width:100%;padding:12px;margin:8px 0 14px;background:#101831;border:1px solid #293252;border-radius:6px;color:white"><button class="checkout" id="loginDemo">Continuar</button><p class="modal-note">La autenticación todavía no está conectada. Este formulario es solo una demostración visual.</p></div></div>
+<script>
+const products = [
+{id:1,name:"PlayStation 5 Slim",type:"Consola 1TB",price:9999,tag:"Más vendido",rating:"4.9",reviews:"2.3k",category:["Consolas","PlayStation"],img:"https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&w=480&q=85",emoji:"🎮"},
+{id:2,name:"Xbox Series X",type:"Consola 1TB",price:9499,tag:"Popular",rating:"4.8",reviews:"1.8k",category:["Consolas","Xbox"],img:"https://images.unsplash.com/photo-1621259182978-fbf93132d53d?auto=format&fit=crop&w=480&q=85",emoji:"🕹️"},
+{id:3,name:"Nintendo Switch OLED",type:"Consola 64GB",price:7499,tag:"Oferta",rating:"4.8",reviews:"1.5k",category:["Consolas","Nintendo","Ofertas"],img:"https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&w=480&q=85",emoji:"🎮"},
+{id:4,name:"The Legend of Zelda: Tears of the Kingdom",type:"Nintendo Switch",price:1299,tag:"Nuevo",rating:"4.9",reviews:"980",category:["Juegos","Nintendo"],img:"https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=480&q=85",emoji:"🗡️"},
+{id:5,name:"Audífonos HyperX Cloud II",type:"PC / PS / Xbox",price:1999,old:2499,discount:"-20%",tag:"En oferta",rating:"4.7",reviews:"1.2k",category:["Accesorios","PC Gaming","Ofertas"],img:"https://images.unsplash.com/photo-1599669454699-248893623440?auto=format&fit=crop&w=480&q=85",emoji:"🎧"},
+{id:6,name:"Control DualSense",type:"PS5",price:1599,tag:"",rating:"4.8",reviews:"2.1k",category:["Accesorios","PlayStation"],img:"https://images.unsplash.com/photo-1606318801954-d46d46d3360a?auto=format&fit=crop&w=480&q=85",emoji:"🎮"},
+{id:7,name:"Silla Gamer",type:"Ergonómica",price:3499,tag:"",rating:"4.7",reviews:"640",category:["Accesorios","PC Gaming"],img:"https://images.unsplash.com/photo-1598550476439-6847785fcea6?auto=format&fit=crop&w=480&q=85",emoji:"🪑"},
+{id:8,name:"Call of Duty: Modern Warfare III",type:"Código digital",price:1099,tag:"Digital",rating:"4.6",reviews:"532",category:["Juegos","Ofertas"],img:"https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=480&q=85",emoji:"🎯"}
+];
+let cart = JSON.parse(localStorage.getItem("pixelPointCart")||"[]");
+let activeCategory = "";
+const money = n => "$"+n.toLocaleString("es-MX");
+const grid = document.getElementById("productsGrid");
+function renderProducts(){
+ const q=document.getElementById("searchInput").value.trim().toLowerCase();
+ const list=products.filter(p=>(!activeCategory||p.category.includes(activeCategory))&&(!q||(p.name+" "+p.type+" "+p.category.join(" ")).toLowerCase().includes(q)));
+ document.getElementById("sectionTitle").textContent=activeCategory?activeCategory.toUpperCase():q?"RESULTADOS DE BÚSQUEDA":"MÁS VENDIDOS";
+ document.getElementById("clearFilter").textContent=activeCategory||q?"Limpiar filtro →":"Ver todos →";
+ if(!list.length){grid.innerHTML='<div class="empty">No encontramos productos con esa búsqueda. Intenta con otra palabra.</div>';return}
+ grid.innerHTML=list.map(p=>`<article class="product"><div class="product-image">${p.tag?`<span class="tag">${p.tag}</span>`:""}<img src="${p.img}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<span style=&quot;font-size:54px&quot;>${p.emoji}</span>')"></div><div class="product-info"><div class="product-name">${p.name}</div><div class="product-type">${p.type}</div><div class="price-row"><span class="price">${money(p.price)}</span>${p.old?`<span class="old-price">${money(p.old)}</span><span class="discount">${p.discount}</span>`:""}</div><div class="rating-row"><div class="rating"><span class="star">★</span>${p.rating} (${p.reviews})</div><button class="add-cart" data-add="${p.id}" aria-label="Agregar ${p.name} al carrito">🛒</button></div></div></article>`).join("");
+}
+function updateCart(){document.getElementById("cartCount").textContent=cart.reduce((s,i)=>s+i.qty,0);localStorage.setItem("pixelPointCart",JSON.stringify(cart));renderCart()}
+function renderCart(){const el=document.getElementById("cartItems");if(!cart.length){el.innerHTML='<p class="modal-note">Tu carrito está vacío. ¡Encuentra algo para jugar!</p>';document.getElementById("cartTotal").textContent=money(0);return}el.innerHTML=cart.map(i=>{const p=products.find(p=>p.id===i.id);return `<div class="cart-item"><div><strong>${p.name}</strong><small>${money(p.price)} por unidad</small><div class="qty"><button data-qty="${p.id}" data-delta="-1" aria-label="Disminuir">−</button><span>${i.qty}</span><button data-qty="${p.id}" data-delta="1" aria-label="Aumentar">+</button><button class="remove" data-remove="${p.id}">Eliminar</button></div></div><strong>${money(p.price*i.qty)}</strong></div>`}).join("");document.getElementById("cartTotal").textContent=money(cart.reduce((s,i)=>s+products.find(p=>p.id===i.id).price*i.qty,0))}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove("show"),2300)}
+function openModal(id){document.getElementById(id).classList.add("open")}
+function closeModal(id){document.getElementById(id).classList.remove("open")}
+grid.addEventListener("click",e=>{const b=e.target.closest("[data-add]");if(!b)return;const id=Number(b.dataset.add);const found=cart.find(i=>i.id===id);if(found)found.qty++;else cart.push({id,qty:1});updateCart();toast("¡Producto agregado al carrito!")});
+document.getElementById("cartItems").addEventListener("click",e=>{const q=e.target.closest("[data-qty]");const r=e.target.closest("[data-remove]");if(q){const id=Number(q.dataset.qty),d=Number(q.dataset.delta),item=cart.find(i=>i.id===id);item.qty+=d;if(item.qty<=0)cart=cart.filter(i=>i.id!==id);updateCart()}if(r){cart=cart.filter(i=>i.id!==Number(r.dataset.remove));updateCart()}});
+document.getElementById("cartBtn").onclick=()=>{renderCart();openModal("cartModal")};
+document.getElementById("accountBtn").onclick=()=>openModal("accountModal");
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>closeModal(b.dataset.close));
+document.querySelectorAll(".modal-backdrop").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)m.classList.remove("open")}));
+document.getElementById("searchForm").addEventListener("submit",e=>{e.preventDefault();activeCategory="";renderProducts();document.getElementById("productos").scrollIntoView({behavior:"smooth"})});
+document.getElementById("searchInput").addEventListener("input",()=>{activeCategory="";renderProducts()});
+document.querySelectorAll("[data-category]").forEach(a=>a.addEventListener("click",()=>{activeCategory=a.dataset.category==="Más vendidos"?"":a.dataset.category;document.getElementById("searchInput").value="";renderProducts();document.querySelectorAll(".nav-link").forEach(n=>n.classList.toggle("active",n.dataset.category===activeCategory));}));
+document.getElementById("clearFilter").onclick=e=>{e.preventDefault();activeCategory="";document.getElementById("searchInput").value="";document.querySelectorAll(".nav-link").forEach(n=>n.classList.remove("active"));renderProducts()};
+document.getElementById("scrollProducts").onclick=()=>grid.scrollBy({left:360,behavior:"smooth"});
+document.getElementById("checkoutBtn").onclick=()=>toast("Demo: conecta una pasarela de pago para habilitar compras reales.");
+document.getElementById("loginDemo").onclick=()=>toast("La cuenta necesita un servicio de autenticación para funcionar.");
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();updateCart();
+</script>
+</body>
+</html>
